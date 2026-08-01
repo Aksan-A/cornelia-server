@@ -4,15 +4,19 @@ services:
     image: pihole/pihole:latest
 
     ports:
+      # DNS
       - "53:53/tcp"
       - "53:53/udp"
+
+      # Webinterface
       - "8080:80/tcp"
+      - "8443:443/tcp"
 
     environment:
       TZ: "Europe/Amsterdam"
       FTLCONF_webserver_api_password: "${PIHOLE_PASSWORD}"
       FTLCONF_dns_listeningMode: "ALL"
-      FTLCONF_dns_upstreams: "1.1.1.1;9.9.9.9"
+      FTLCONF_dns_upstreams: "172.18.0.1#5335"
       FTLCONF_dns_hosts: |-
         192.168.2.37 Cornelia cornelia.lan
         fd4c:4b32:3032::53 Cornelia cornelia.lan
