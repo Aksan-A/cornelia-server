@@ -1,0 +1,14 @@
+# Secrets
+.env
+**/.env
+
+# Pi-hole persistent runtime data
+pihole/etc-pihole/
+
+# Jellyfin runtime data
+jellyfin/config/
+jellyfin/cache/
+
+# Logs and temporary files
+*.log
+tmp/
